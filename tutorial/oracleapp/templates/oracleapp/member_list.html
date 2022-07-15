@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>회원 리스트 조회하기</title>
+    </head>
+    <body>
+        <p>회원목록</p>
+        <table border="1">
+            <!-- 테이블 0번째 행 -->
+            <tr style = 'background-color : rgb(255, 218, 158)'>
+                <th>아이디</th>
+                <th>비밀번호</th>
+                <th>이름</th>
+                <th>주민번호(앞)</th>
+                <th>주민번호(뒤)</th>
+                <th>생년월일</th>
+                <th>우편번호</th>
+                <th>주소</th>
+                <th>상세주소</th>
+                <th>집전화</th>
+                <th>회사전화</th>
+                <th>이동전화</th>
+                <th>이메일</th>
+                <th>직업</th>
+                <th>취미</th>
+                <th>기념일명</th>
+                <th>기념일날짜</th>
+                <th>마일리지</th>
+                <th>탈퇴여부</th>
+            </tr>
+            <!-- 테이블 1~마지막 행 -->
+            {% for cols in df %}
+            <tr>
+                {% for data in cols %}
+                <td>{{data}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

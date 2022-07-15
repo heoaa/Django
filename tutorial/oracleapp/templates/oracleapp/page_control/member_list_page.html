@@ -1,0 +1,116 @@
+<html>
+    <head>
+        <title>회원리스트 조회</title>
+        <link rel="stylesheet" type="text/css"
+                href="https://getbootstrap.kr/docs/5.0/dist/css/bootstrap.min.css">
+
+        <link rel="stylesheet" type="text/css"
+                href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    </head>
+
+<body>
+    <!-- 제목 넣기 -->
+    <div class="container text-center" style="width: 100%;">
+        <div class="row">
+            <div class="col">
+                <h3 style="font-size: 15px;"><b>회원 목록</b></h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- 테이블 넣기 -->
+    <div class="container text-center" style="width: 100%;">
+        <div class="row">
+            <div class="col">
+                <table border="1" width="100%" style="font-size: 12px;">
+                    <!-- 행 -->
+                    <tr style="background-color: burlywood"> 
+                        <!-- 열 -->
+                        <th>아이디</th>
+                        <th>비밀번호</th>
+                        <th>이름</th>
+                        <th>주민번호(앞)</th>
+                        <th>주민번호(뒤)</th>
+                        <th>생년월일</th>
+                        <th>우편번호</th>
+                        <th>주소</th>
+                        <th>상세주소</th>
+                        <th>집전화</th>
+                        <th>회사전화</th>
+                        <th>이동전화</th>
+                        <th>이메일</th>
+                        <th>직업</th>
+                        <th>취미</th>
+                        <th>기념일명</th>
+                        <th>기념일날짜</th>
+                        <th>마일리지</th>
+                        <th>탈퇴여부</th>
+                    </tr>
+                    
+                    <!-- 데이터 출력 -->
+                    {% for cols in info %}
+                    <tr>
+                        {% for data in cols %}
+                        <td>{{data}}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 페이지처리 넣기 -->
+    <div class="container text-center" style="width: 100%;">
+        <div class="row">
+            <div class="col">
+                <p>
+                    <ul class="pagination" style="justify-content: center; font-size:12px">
+                        <!-- 이전 버튼 처리 ----------------------------------------------------------------------------------- -->
+                        <!-- 'db:cart_list_page' 네임스스페이스 기능
+                        urlpattern 밖에 app_name = 'db'
+                        urls.py name 설정 : path('cart_list_page/', views.view_Cart_List_Page, name='cart_list_page'), -->
+                        
+                        {% if is_prev %}
+                        <li class="page-item">
+                            <a class="page-link"
+                                href="{% url 'oracle:member_list_page' %}?page={{start_page | add:'-3'}}">
+                                <span aria-hidden="true">[이전]</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                        <!-- -------------------------------------------------------------------------------------------------- -->
+                        <!-- 페이지 처리 ----------------------------------------------------------------------------------- -->
+                        {% for i in page_range %}
+                        <li class="page-item">
+                            <a class="page-link" href="{% url 'oracle:member_list_page' %}?page={{i}}">{{i}}</a>
+                        </li>
+                        {% endfor %}
+                        <!-- -------------------------------------------------------------------------------------------------- -->
+                        <!-- 다음 버튼 처리 ----------------------------------------------------------------------------------- -->
+                        {% if is_next %}
+                        <li class="page-item">
+                            <a class="page-link"
+                                href="{% url 'oracle:member_list_page' %}?page={{start_page | add:'3'}}">
+                                <span aria-hidden="true">[다음]</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                        <!-- -------------------------------------------------------------------------------------------------- -->
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <script src="https://getbootstrap.kr/docs/5.0/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+            crossorigin="anonymous"></script>
+
+</body>
+
+</html>

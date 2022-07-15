@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>상품분류 정보 조회하기</title>
+    </head>
+    <body>
+        <b>상품분류</b>
+        <table border="1">
+            <tr style='background-color :burlywood'>
+                <th>ID</th>
+                <th>상품분류코드</th>
+                <th>상품분류명</th>
+            </tr>
+            {% for i in context %}
+            <tr>
+                <td>{{i.lprod_id}}</td>
+                <td>{{i.lprod_gu}}</td>
+                <td>
+                    <a href='http://127.0.0.1:8000/second/lprod?lprod_gu={{i.lprod_gu}}'>{{i.lprod_nm}}</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
+

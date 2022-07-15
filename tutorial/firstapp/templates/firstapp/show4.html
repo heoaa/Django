@@ -1,0 +1,47 @@
+<html>
+    
+<head>
+    <title>show4 페이지 입니다.</title>
+</head>
+
+<body>
+    <!-- h태그 : 폰트사이즈 -->
+    {% comment %} <h1>Template :: show2 페이지</h1>
+    <h2>Template :: show2 페이지</h2>
+    <h3>Template :: show2 페이지</h3>
+    <h4>Template :: show2 페이지</h4>
+    <h5>Template :: show2 페이지</h5> {% endcomment %}
+
+    {% comment %} django 주석 {% endcomment %}
+    <!-- html 주석 -->
+
+    <p>Data 읽어 들이기</p>
+    {% comment %} 전체 표 {% endcomment %}
+    <table border="1">
+        <!-- tr : 행단위 -->
+        <tr>
+            <!-- td : 열단위 -->
+            <td>아이디</td>
+            <td>이름</td>
+        </tr>
+
+        <!-- td : 열단위 -->
+        {% for dt in data %}
+        <tr>
+            <td>{{dt.id}}</td>
+            <td>{{dt.name}}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <hr>
+
+    {% for dt in data %}
+        <h3>{{dt.id}} / {{dt.name}}</h3>
+    
+    {% endfor %}
+
+</body>
+
+</html>

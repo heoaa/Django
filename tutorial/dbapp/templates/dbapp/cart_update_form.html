@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>주문 상세 수정하기</title>
+
+        <script>
+            // 저장버튼 클릭시 호출되는 함수
+            function send(){
+                // 팝업창(popup) 띄우기_경고창
+                alert("수정합니다.");
+                // document : body에서 가져와라
+                // getElementById : fm이라는 속성을 가진 값을 가져와라
+                document.getElementById("fm").submit();
+            }
+        </script>
+    </head>
+    <body>
+    <!--   -->
+        <form name="fm", id="fm" method="post" action="/db/cart_update/">
+            <input type="hidden" name="pcart_no" value="{{pcart_no}}">
+            <input type="hidden" name="pcart_prod" value="{{pcart_prod}}">
+            {% csrf_token %}
+            <p>주문 상세 수정</p>
+
+            <table border="1">
+                <tr>
+                    <td style="background-color: burlywood">회원ID</td>
+                    <td>{{cart_member}}</td>
+                </tr>
+                <tr>
+                    <td style="background-color: burlywood">주문번호</td>
+                    <td>{{cart_no}}</td>
+                </tr>
+                <tr>
+                    <td style="background-color: burlywood">상품코드</td>
+                    <td>{{cart_prod}}</td>
+                </tr>
+                <tr>
+                    <td style="background-color: burlywood">주문수량</td>
+                    <td>
+                        <!-- type을 입력받음 -->
+                        <input type="text" name="cart_qty" value="{{cart_qty}}">
+                    </td>
+                </tr>
+            </table>
+            <a href="#" onclick="send();">[저장]</a>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>주문내역 리스트 조회하기</title>
+    </head>
+    <body>
+        <p>주문 내역</p>
+        <table border="1">
+            <tr style='background-color :burlywood'>
+                <th>회원ID</th>
+                <th>주문번호</th>
+                <th>상품코드</th>
+                <th>주문수량</th>
+            </tr>
+            {% for i in df %}
+            <tr>
+                {% for j in i %}
+                <td>{{j}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
+

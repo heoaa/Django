@@ -1,0 +1,22 @@
+<html>
+    
+<head>
+    <title>show2 페이지 입니다.</title>
+</head>
+
+<table border="1">
+    <tr>
+        <td> id </td>
+        <td> name </td>
+        <td> cnt </td>
+    </tr>
+    {% for dt in data %}
+    <tr>
+        <td>{{dt.id}}</td>
+        <td>{{dt.name}}</td>
+        <td>{{dt.cnt}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</html>
