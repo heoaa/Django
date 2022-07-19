@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['127.0.0.1']
 # Application definition
 # Update 2022-07-12
 INSTALLED_APPS = [
+    'chi2app',
     'frontendapp',
     'dbapp',
     'oracleapp',

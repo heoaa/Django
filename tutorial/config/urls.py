@@ -29,5 +29,6 @@ urlpatterns = [
     path('oracle/', include('oracleapp.urls')),
     path('db/', include('dbapp.urls')),
     path('frontend/', include('frontendapp.urls')),
+    path('chi2/', include('chi2app.urls')),
     # path('home/', views.home)
 ]
