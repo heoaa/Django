@@ -1,0 +1,34 @@
+<!-- static 폴더를 사용하기 위해선 load 필요 -->
+{% load static %}
+<html>
+    <head>
+        <title>설문 분석결과 보기</title>
+    </head>
+    <body>
+    <h3 align='center'>
+        커피전문점에 대한 소비자 인식 조사
+    </h3>
+    <hr/>
+
+    <h3 align='center'>
+        [교차표]
+    </h3>
+    <p align='center'>{{crossTab | safe}}</p>
+    <hr/>
+
+    <h3 align='center'>
+        [검정결과(해석)]
+    </h3>
+
+    <p align='center'>{{results | safe}}</p>
+    <hr/>
+
+    <h3 align='center'>
+        [교차표 시각화]
+    </h3>
+
+    <p align='center'>
+        <img src="{% static 'chi2app/images/chi2.png' %}" width="700" height="550">
+    </p>
+    </body>
+</html>
